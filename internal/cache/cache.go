@@ -3,7 +3,6 @@ package cache
 import (
 	"container/list"
 	"sync"
-	"time"
 )
 
 type Cache struct {
@@ -11,15 +10,13 @@ type Cache struct {
 	order    *list.List
 	capacity int
 	mu       sync.RWMutex
-	TTL      time.Duration
 }
 
-func New(capacity int, ttl time.Duration) *Cache {
+func New(capacity int) *Cache {
 	return &Cache{
 		cache:    make(map[string]*list.Element),
 		order:    list.New(),
 		capacity: capacity,
-		TTL:      ttl,
 	}
 }
 

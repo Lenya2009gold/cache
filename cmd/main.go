@@ -14,7 +14,7 @@ func main() {
 	lruCache.Set("key3", "value3")
 
 	time.Sleep(2 * time.Second)
-
+	lruCache.Remove("key1")
 	if value, found := lruCache.Get("key1"); found {
 		fmt.Println("key1:", value)
 	} else {

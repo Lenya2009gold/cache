@@ -42,6 +42,7 @@ func (c *Cache) Get(key string) (interface{}, bool) {
 	if !exists {
 		return nil, false
 	}
+	c.order.MoveToFront(item)
 	return item.Value, true
 }
 func (c *Cache) Remove(key string) {
